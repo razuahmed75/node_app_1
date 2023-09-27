@@ -1,27 +1,24 @@
 /*
- * Title: Uptime Monitoring Application
- * Description: A RESTFul API to monitor up or down time of user defined links.
+ * Title: User Handler
+ * Description: Handler to handle user related routes
  * Author: Razu ahmed
- * Date: 24/9/23
+ * Date: 27/9/23
  *
  */
 
 // Dependencies
 const http = require('http');
 const { handleReqRes } = require('./helpers/handleReqRes');
+const environment = require('./helpers/environments');
 
 // app object - module scaffolding
 const app = {};
 
-// configuration
-app.config = {
-    port: 3000,
-};
-
 // create server
 app.createServer = () => {
-    http.createServer(app.handleReq).listen(app.config.port);
-    console.log(`listening to port ${app.config.port}`);
+    http.createServer(app.handleReq).listen(environment.port, () => {
+        console.log(`listening to port ${environment.port}`);
+    });
 };
 
 // handle request response

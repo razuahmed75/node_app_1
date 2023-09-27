@@ -2,8 +2,10 @@
   "dependencies": {
     "lodash": "^4.17.21"
   },
+  "main": "index.js",
   "scripts": {
-    "start": "nodemon index"
+    "start": "NODE_ENV=staging nodemon index",
+    "production": "NODE_ENV=production nodemon index"
   },
   "devDependencies": {
     "eslint": "8.2.0",
@@ -12,5 +14,6 @@
     "eslint-plugin-import": "2.25.2",
     "eslint-plugin-prettier": "^5.0.0",
     "prettier": "^3.0.3"
-  }
+  },
+  "license": "UNLICENSED"
 }
