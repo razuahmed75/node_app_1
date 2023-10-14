@@ -9,6 +9,7 @@
 // dependencies
 const crypto = require('crypto');
 const environments = require('./environments');
+
 // module scaffolding
 const utilities = {};
 
@@ -31,6 +32,24 @@ utilities.hash = (str) => {
         return hash;
     } else {
         false;
+    }
+};
+
+// create random string
+utilities.createRandomString = (strLen) => {
+    let strln = typeof strLen === 'number' ? strLen : false;
+
+    if (strln) {
+        let possibleCharacters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        let output = '';
+
+        for (let i = 0; i < strln; i += 1) {
+            let randomChar = possibleCharacters.charAt(
+                Math.floor(Math.random() * possibleCharacters.length)
+            );
+            output += randomChar;
+        }
+        return output;
     }
 };
 
